@@ -3,56 +3,56 @@
 
 class MiniPID{
 public:
-	MiniPID(double, double, double);
-	MiniPID(double, double, double, double);
-	void setP(double);
-	void setI(double);
-	void setD(double);
-	void setF(double);
-	void setPID(double, double, double);
-	void setPID(double, double, double, double);
-	void setMaxIOutput(double);
-	void setOutputLimits(double);
-	void setOutputLimits(double,double);
+	MiniPID(float, float, float);
+	MiniPID(float, float, float, float);
+	void setP(float);
+	void setI(float);
+	void setD(float);
+	void setF(float);
+	void setPID(float, float, float);
+	void setPID(float, float, float, float);
+	void setMaxIOutput(float);
+	void setOutputLimits(float);
+	void setOutputLimits(float,float);
 	void setDirection(bool);
-	void setSetpoint(double);
+	void setSetpoint(float);
 	void reset();
-	void setOutputRampRate(double);
-	void setSetpointRange(double);
-	void setOutputFilter(double);
-	double getOutput();
-	double getOutput(double);
-	double getOutput(double, double);
+	void setOutputRampRate(float);
+	void setSetpointRange(float);
+	void setOutputFilter(float);
+	float getOutput();
+	float getOutput(float);
+	float getOutput(float, float);
 
 private:
-	double clamp(double, double, double);
-	bool bounded(double, double, double);
+	float clamp(float, float, float);
+	bool bounded(float, float, float);
 	void checkSigns();
 	void init();
-	double P;
-	double I;
-	double D;
-	double F;
+	float P;
+	float I;
+	float D;
+	float F;
 
-	double maxIOutput;
-	double maxError;
-	double errorSum;
+	float maxIOutput;
+	float maxError;
+	float errorSum;
 
-	double maxOutput; 
-	double minOutput;
+	float maxOutput; 
+	float minOutput;
 
-	double setpoint;
+	float setpoint;
 
-	double lastActual;
+	float lastActual;
 
 	bool firstRun;
 	bool reversed;
 
-	double outputRampRate;
-	double lastOutput;
+	float outputRampRate;
+	float lastOutput;
 
-	double outputFilter;
+	float outputFilter;
 
-	double setpointRange;
+	float setpointRange;
 };
 #endif
