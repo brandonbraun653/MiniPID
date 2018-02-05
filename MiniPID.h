@@ -3,8 +3,9 @@
 
 class MiniPID{
 public:
-	MiniPID(float, float, float);
-	MiniPID(float, float, float, float);
+	MiniPID(float fSample, float Kp, float Ki, float Kd);
+	
+	
 	void setP(float);
 	void setI(float);
 	void setD(float);
@@ -18,10 +19,8 @@ public:
 	void setSetpoint(float);
 	void reset();
 	void setOutputRampRate(float);
-	void setSetpointRange(float);
-	void setOutputFilter(float);
-	float getOutput();
-	float getOutput(float);
+	
+	
 	float getOutput(float, float);
 
 private:
@@ -29,9 +28,9 @@ private:
 	bool bounded(float, float, float);
 	void checkSigns();
 	void init();
-	float P;
-	float I;
-	float D;
+	float Kp;
+	float Ki;
+	float Kd;
 	float F;
 
 	float maxIOutput;
@@ -43,7 +42,7 @@ private:
 
 	float setpoint;
 
-	float lastActual;
+	float lastInput;
 
 	bool firstRun;
 	bool reversed;
@@ -54,5 +53,12 @@ private:
 	float outputFilter;
 
 	float setpointRange;
+	
+	float sampleFrequency;
+	float sample_dT;
+	
+	float PTerm;
+	float ITerm;
+	float DTerm;
 };
 #endif
